@@ -65,5 +65,4 @@ resource "azurerm_storage_account" "gurukulStorageAccount" {
     created_BY = "Terraform"
   }
 }
-
 ```
