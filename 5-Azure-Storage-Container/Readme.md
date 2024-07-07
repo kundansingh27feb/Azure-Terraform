@@ -1,4 +1,4 @@
-## Changing backend from From Local To Remote
+# Change backend from Local To Remote
 
 # Create Storage Account:
 
@@ -56,7 +56,17 @@ resource "azurerm_storage_container" "gurukul-sc" {
 
 Run terraform init after creating the .tf files to initialize the backend and download necessary provider plugins.
 
+# Run validation and fmt command:
+
+`terraform fmt`
+`terraform validate`
+
+# Dry run your code to validate all the things
+
+`terraform plan`
+
 # Apply Configuration:
 
 Use terraform apply to create the storage account and container.
 
+`terraform apply`
