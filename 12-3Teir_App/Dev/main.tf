@@ -14,8 +14,18 @@ module "subnet_dev" {
   subnet     = var.subnet
 }
 
+module "public_ip" {
+  depends_on = [ module.subnet_dev ]
+  source = "../../modules/public_ip"
+  public_ip = var.public_ip
+}
+module "nsg_dev" {
+  depends_on = [ module.resource_group_dev ]
+  source = "../../modules/nsg"
+  nsg    = var.nsg
+}
 module "network_interface" {
-  depends_on = [module.subnet_dev]
+  depends_on = [module.public_ip, module.nsg_dev]
   source     = "../../modules/network_interface"
   network_interfaces = {
     network_interface_1 = {
@@ -23,21 +33,25 @@ module "network_interface" {
       location            = "westus"
       resource_group_name = "3-teir-arch-dev"
       subnet_id           = module.subnet_dev.subnet_ids["sub1"]
-      #public_ip_id        = module.public_ip.public_ip_ids["pub_ip1"]
+      public_ip_id        = module.public_ip.public_ip_ids["pub_ip1"]
+      network_security_group_id   = module.nsg_dev.nsg_ids["nsg1"]
     }
     network_interface_2 = {
       name                = var.network_interfaces["network_interface_2"].name
       location            = "westus"
       resource_group_name = "3-teir-arch-dev"
       subnet_id           = module.subnet_dev.subnet_ids["sub2"]
-      #public_ip_id        = module.public_ip.public_ip_ids["pub_ip2"]
+      public_ip_id        = module.public_ip.public_ip_ids["pub_ip2"]
+      network_security_group_id   = module.nsg_dev.nsg_ids["nsg2"]
     }
   }
 }
 
 
+
 module "vm_dev" {
-  depends_on = [module.resource_group_dev, module.subnet_dev, module.network_interface]
+  #depends_on = [module.resource_group_dev, module.subnet_dev, module.network_interface]
+  depends_on = [ module.network_interface ]
   source     = "../../modules/VirtualMachine/"
     vm_config  = {
 
