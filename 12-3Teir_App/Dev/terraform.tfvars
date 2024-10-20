@@ -23,17 +23,13 @@ vnet = {
   }
 }
 
-subnet = {
+subnet1 = {
   sub1 = {
     name                 = "frontendSubnet"
-    resource_group_name  = "3-teir-arch-dev"
-    virtual_network_name = "3-teir-vnet"
     address_prefixes     = ["10.0.1.0/24"]
   }
   sub2 = {
     name                 = "backendSubnet"
-    resource_group_name  = "3-teir-arch-dev"
-    virtual_network_name = "3-teir-vnet"
     address_prefixes     = ["10.0.2.0/24"]
   }
 }

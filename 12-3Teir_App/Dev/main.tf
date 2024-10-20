@@ -5,15 +5,10 @@ module "resource_group_dev" {
 
 module "vnet_dev" {
   depends_on = [module.resource_group_dev]
-  source     = "../../modules/vnet/"
+  source     = "../../modules/Network/"
   vnet       = var.vnet
+  subnet1 = var.subnet1
 }
-module "subnet_dev" {
-  depends_on = [module.vnet_dev]
-  source     = "../../modules/subnet/"
-  subnet     = var.subnet
-}
-
 module "network_interface" {
   depends_on = [module.subnet_dev]
   source     = "../../modules/network_interface"
@@ -34,8 +29,6 @@ module "network_interface" {
     }
   }
 }
-
-
 module "vm_dev" {
   depends_on = [module.resource_group_dev, module.subnet_dev, module.network_interface]
   source     = "../../modules/VirtualMachine/"
