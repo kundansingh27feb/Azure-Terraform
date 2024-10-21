@@ -8,14 +8,18 @@ rg = {
         location = "eastus"
     }
 }
-
 subnet = {
     sub1 = {
         name = "subnet1"
         address_prefixes = ["10.0.1.0/24"]
     }
-    rg2 = {
+    sub2 = {
         name = "subnet2"
         address_prefixes = ["10.0.2.0/24"]
     }
 }
+
+env = "Development"
+client = "Tacos"
+app-code = "Charli001"
+mission = "Mangal"

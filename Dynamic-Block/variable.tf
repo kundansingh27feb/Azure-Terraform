@@ -15,3 +15,16 @@ variable "subnet" {
     address_prefixes = list(string)
   }))
 }
+
+variable "env" {
+  type = string
+}
+variable "client" {
+  type = string
+}
+variable "app-code" {
+      type = string
+}
+variable "mission" {
+      type = string
+}
