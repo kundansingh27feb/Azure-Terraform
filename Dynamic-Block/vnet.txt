@@ -1,0 +1,50 @@
+subnet = {
+  "address_space" = toset([
+    "10.0.0.0/16",
+  ])
+  "bgp_community" = ""
+  "ddos_protection_plan" = tolist([])
+  "dns_servers" = tolist([])
+  "edge_zone" = ""
+  "encryption" = tolist([])
+  "flow_timeout_in_minutes" = 0
+  "guid" = "553b585a-2641-4529-94cf-d1c56da075a3"
+  "id" = "/subscriptions/5ef24a7e-16a5-481a-a087-871ca20d8cb4/resourceGroups/gurukul-myrg1/providers/Microsoft.Network/virtualNetworks/gurukul-vet"
+  "location" = "westus"
+  "name" = "gurukul-vet"
+  "resource_group_name" = "gurukul-myrg1"
+  "subnet" = toset([
+    {
+      "address_prefixes" = tolist([
+        "10.0.1.0/24",
+      ])
+      "default_outbound_access_enabled" = true
+      "delegation" = tolist([])
+      "id" = "/subscriptions/5ef24a7e-16a5-481a-a087-871ca20d8cb4/resourceGroups/gurukul-myrg1/providers/Microsoft.Network/virtualNetworks/gurukul-vet/subnets/subnet1"
+      "name" = "subnet1"
+      "private_endpoint_network_policies" = "Disabled"
+      "private_link_service_network_policies_enabled" = true
+      "route_table_id" = ""
+      "security_group" = ""
+      "service_endpoint_policy_ids" = toset([])
+      "service_endpoints" = toset([])
+    },
+    {
+      "address_prefixes" = tolist([
+        "10.0.2.0/24",
+      ])
+      "default_outbound_access_enabled" = true
+      "delegation" = tolist([])
+      "id" = "/subscriptions/5ef24a7e-16a5-481a-a087-871ca20d8cb4/resourceGroups/gurukul-myrg1/providers/Microsoft.Network/virtualNetworks/gurukul-vet/subnets/subnet2"
+      "name" = "subnet2"
+      "private_endpoint_network_policies" = "Disabled"
+      "private_link_service_network_policies_enabled" = true
+      "route_table_id" = ""
+      "security_group" = ""
+      "service_endpoint_policy_ids" = toset([])
+      "service_endpoints" = toset([])
+    },
+  ])
+  "tags" = tomap(null) /* of string */
+  "timeouts" = null /* object */
+}

@@ -8,11 +8,9 @@ variable "sa_details" {
 variable "vnet" {
   type = map(any)
 }
-variable "subnet" {
+variable "subnet1" {
   type = map(object({
     name                 = string
-    resource_group_name  = string
-    virtual_network_name = string
     address_prefixes     = list(string)
   }))
 }
