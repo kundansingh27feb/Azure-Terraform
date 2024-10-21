@@ -2,7 +2,7 @@
 **/.terraform/*
 **/.terraform.lock.hcl
 **/provider.tf
-**/*.provider.tf
+**/*/.provider.tf
 # .tfstate files
 *.tfstate
 *.tfstate.*
