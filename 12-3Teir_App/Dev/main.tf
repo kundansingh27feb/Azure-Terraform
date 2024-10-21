@@ -9,28 +9,9 @@ module "vnet_dev" {
   vnet       = var.vnet
   subnet1 = var.subnet1
 }
-module "network_interface" {
-  depends_on = [module.subnet_dev]
-  source     = "../../modules/network_interface"
-  network_interfaces = {
-    network_interface_1 = {
-      name                = var.network_interfaces["network_interface_1"].name
-      location            = "westus"
-      resource_group_name = "3-teir-arch-dev"
-      subnet_id           = module.subnet_dev.subnet_ids["sub1"]
-      #public_ip_id        = module.public_ip.public_ip_ids["pub_ip1"]
-    }
-    network_interface_2 = {
-      name                = var.network_interfaces["network_interface_2"].name
-      location            = "westus"
-      resource_group_name = "3-teir-arch-dev"
-      subnet_id           = module.subnet_dev.subnet_ids["sub2"]
-      #public_ip_id        = module.public_ip.public_ip_ids["pub_ip2"]
-    }
-  }
-}
 module "vm_dev" {
-  depends_on = [module.resource_group_dev, module.subnet_dev, module.network_interface]
+  #depends_on = [module.resource_group_dev, module.subnet_dev, module.network_interface]
+  depends_on = [ module.network_interface ]
   source     = "../../modules/VirtualMachine/"
     vm_config  = {
 
